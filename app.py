@@ -6,8 +6,8 @@ from linebot.models import MessageEvent, TextMessage, FlexSendMessage
 app = Flask(__name__)
 
 # 請務必填入您在 LINE Developers 後台取得的資訊
-line_bot_api = LineBotApi('您的_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('您的_CHANNEL_SECRET')
+line_bot_api = LineBotApi('wMPbjvCuz7jcDVRj5Q3IOfxqEtSN6EYHO66hQPuuJO1AQpzZnWHdUMKIw5GR4bU2328Baj125NHH70HbDUTqMrkY2YfO5b8GGXTLFTVoDI8YihSjhIlr3OpyGoWIYYlnGJpEZWnxIwqJVHkKmxSqGgdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('983d427bcf0b3056bd78522df0902cbd')
 
 @app.route("/callback", methods=['POST'])
 def callback():
