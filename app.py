@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -5,9 +6,9 @@ from linebot.models import MessageEvent, TextMessage, FlexSendMessage
 
 app = Flask(__name__)
 
-# 請務必填入您在 LINE Developers 後台取得的資訊
-line_bot_api = LineBotApi('wMPbjvCuz7jcDVRj5Q3IOfxqEtSN6EYHO66hQPuuJO1AQpzZnWHdUMKIw5GR4bU2328Baj125NHH70HbDUTqMrkY2YfO5b8GGXTLFTVoDI8YihSjhIlr3OpyGoWIYYlnGJpEZWnxIwqJVHkKmxSqGgdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('983d427bcf0b3056bd78522df0902cbd')
+# 從環境變數讀取金鑰，請務必在部署平台上設定這些變數
+line_bot_api = LineBotApi(os.environ.get('CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(os.environ.get('CHANNEL_SECRET'))
 
 @app.route("/callback", methods=['POST'])
 def callback():
